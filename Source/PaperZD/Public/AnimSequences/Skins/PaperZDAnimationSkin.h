@@ -15,7 +15,7 @@ class UPrimitiveComponent;
 /**
  * A skin file that can be applied to an animation instance to modify how the render components displays the AnimSequences.
  */
-UCLASS(abstract)
+UCLASS(abstract, BlueprintType)
 class PAPERZD_API UPaperZDAnimationSkin : public UObject
 {
 	GENERATED_BODY()
