@@ -195,7 +195,7 @@ FReply SPaperZDToolViewport::OnMouseButtonDown(const FGeometry& MyGeometry, cons
     {
         // START MARQUEE SELECTION.
         const FVector2D GraphMousePos = PanelCoordToGraphCoord(MyGeometry.AbsoluteToLocal(MouseEvent.GetScreenSpacePosition()) * MyGeometry.Scale);
-        Marquee.Start(GraphMousePos, FMarqueeOperation::OperationTypeFromMouseEvent(MouseEvent));
+        Marquee.Start(GraphMousePos, FPaperZDToolMarqueeOperation::OperationTypeFromMouseEvent(MouseEvent));
 
         // Trigger a selection update now so that single-clicks without a drag still select something
         OnSelectionChanged.ExecuteIfBound(Marquee, true);
@@ -286,7 +286,7 @@ FReply SPaperZDToolViewport::OnMouseButtonUp(const FGeometry& MyGeometry, const 
         }
 
         // The existing marquee operation ended; reset it.
-        Marquee = FMarqueeOperation();
+        Marquee = FPaperZDToolMarqueeOperation();
 
         if (bIsPanning)
         {

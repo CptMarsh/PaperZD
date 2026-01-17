@@ -14,9 +14,9 @@ class FPaintArgs;
 class FSlateWindowElementList;
 struct Rect;
 
-struct FMarqueeOperation
+struct FPaperZDToolMarqueeOperation
 {
-	FMarqueeOperation()
+	FPaperZDToolMarqueeOperation()
 	: Operation(Add)
 	{
 	}
@@ -36,7 +36,7 @@ struct FMarqueeOperation
 		return Rect.IsValid();
 	}
 
-	void Start(const FVector2D& InStartLocation, FMarqueeOperation::Type InOperationType)
+	void Start(const FVector2D& InStartLocation, FPaperZDToolMarqueeOperation::Type InOperationType)
 	{
 		Rect = FMarqueeRect(InStartLocation);
 		Operation = InOperationType;
@@ -48,19 +48,19 @@ struct FMarqueeOperation
 	}
 
 	/** Given a mouse event, figure out what the marquee selection should do based on the state of Shift and Ctrl keys */
-	static FMarqueeOperation::Type OperationTypeFromMouseEvent(const FPointerEvent& MouseEvent)
+	static FPaperZDToolMarqueeOperation::Type OperationTypeFromMouseEvent(const FPointerEvent& MouseEvent)
 	{
 		if (MouseEvent.IsControlDown())
 		{
-			return FMarqueeOperation::Toggle;
+			return FPaperZDToolMarqueeOperation::Toggle;
 		}
 		else if (MouseEvent.IsShiftDown())
 		{
-			return FMarqueeOperation::Add;
+			return FPaperZDToolMarqueeOperation::Add;
 		}
 		else
 		{
-			return FMarqueeOperation::Replace;
+			return FPaperZDToolMarqueeOperation::Replace;
 		}
 	}
 
@@ -75,7 +75,7 @@ public:
 class SPaperZDToolViewport : public SEditorViewport
 {
 public:
-    DECLARE_DELEGATE_TwoParams(FOnSelectionChanged, FMarqueeOperation /*MarqueeAction*/, bool /*bPreview*/);
+    DECLARE_DELEGATE_TwoParams(FOnSelectionChanged, FPaperZDToolMarqueeOperation /*MarqueeAction*/, bool /*bPreview*/);
 public:
     SLATE_BEGIN_ARGS(SPaperZDToolViewport) {}
         SLATE_EVENT(FOnSelectionChanged, OnSelectionChanged);
@@ -137,7 +137,7 @@ protected:
     float TotalMouseDelta;
 
     /** A pending marquee operation if it's active */
-    FMarqueeOperation Marquee;
+    FPaperZDToolMarqueeOperation Marquee;
 
     /** Curve that handles fading the 'Zoom +X' text */
     FCurveSequence ZoomLevelFade;
