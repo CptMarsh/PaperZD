@@ -397,7 +397,11 @@ void FPaperZDAnimationSourceViewportClient::UpdateCompositeRenderComponents()
 			{
 				const int32 Index = CompositeRenderComponents.Num() - 1;
 				PreviewScene->RemoveComponent(CompositeRenderComponents[Index].Get());
+#if ENGINE_MAJOR_VERSION >= 5 && ENGINE_MINOR_VERSION >= 4
 				CompositeRenderComponents.RemoveAt(Index, EAllowShrinking::No);
+#else
+				CompositeRenderComponents.RemoveAt(Index, 1, false);
+#endif
 			}
 
 			CompositeRenderComponents.Shrink();
