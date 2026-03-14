@@ -37,13 +37,13 @@ public:
 	FText Name_DEPRECATED;
 
 	UPROPERTY()
-	class UPaperFlipbook* Flipbook_DEPRECATED;
+	TObjectPtr<class UPaperFlipbook> Flipbook_DEPRECATED;
 
 	UPROPERTY()
 	FName SequenceIdentifier_DEPRECATED;
 
 	UPROPERTY()
-	class UPaperZDAnimSequence* AnimSequence_DEPRECATED;
+	TObjectPtr<class UPaperZDAnimSequence> AnimSequence_DEPRECATED;
 
 	UPROPERTY()
 	bool bShouldLoop_DEPRECATED;

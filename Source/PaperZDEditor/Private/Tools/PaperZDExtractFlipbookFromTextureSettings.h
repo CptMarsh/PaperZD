@@ -78,7 +78,7 @@ public:
 
     // The material for the flipbook
     UPROPERTY(Category = Flipbook, EditAnywhere)
-    UMaterialInterface* Material;
+    TObjectPtr<UMaterialInterface> Material;
 
 public:
 	//ctor
@@ -319,11 +319,11 @@ struct FPaperZDExtractFlipbooksAnimationSkinSettings
 public:
     // The animation skin to use (leave empty to create a new one)
     UPROPERTY(Category = Animation, EditAnywhere)
-    UPaperZDAnimationSkin_Flipbook* AnimationSkin;
+    TObjectPtr<UPaperZDAnimationSkin_Flipbook> AnimationSkin;
 
     // The animation sequences available for the skin
     UPROPERTY(Category = Animation, VisibleAnywhere)
-    TArray<UPaperZDAnimSequence_Flipbook*> AnimationSequences;
+    TArray<TObjectPtr<UPaperZDAnimSequence_Flipbook>> AnimationSequences;
 
 public:
 	//ctor
@@ -340,7 +340,7 @@ struct FPaperZDExtractFlipbooksAnimationSettings
 public:
     // The animation source to use for the created animation blueprint, sequences and/or skins created
     UPROPERTY(Category = Animation, EditAnywhere)
-    UPaperZDAnimationSource_Flipbook* AnimationSource;
+    TObjectPtr<UPaperZDAnimationSource_Flipbook> AnimationSource;
 
     // If a animation blueprint should be created using the given (or newly created) animation source
     UPROPERTY(Category = Animation, EditAnywhere)

@@ -18,7 +18,7 @@ struct FPaperZDFlipbookAnimDataSource
 
 	/* The additional layers to render alongside the main animation. */
 	UPROPERTY(EditAnywhere, Category = "AnimSequence")
-	TArray<UPaperFlipbook*> CompositeLayerAnimations;
+	TArray<TObjectPtr<UPaperFlipbook>> CompositeLayerAnimations;
 
 public:
 	//ctor

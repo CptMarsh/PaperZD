@@ -91,7 +91,7 @@ private:
 #if WITH_EDITORONLY_DATA
 	/* DEPRECATED: Points to the AnimBP that owned this AnimSequence before the creation of AnimSources. */
 	UPROPERTY(AssetRegistrySearchable)
-	UPaperZDAnimBP* AnimBP_DEPRECATED;
+	TObjectPtr<UPaperZDAnimBP> AnimBP_DEPRECATED;
 
 	/* Track meta information for editor display. */
 	UPROPERTY()
@@ -109,7 +109,7 @@ public:
 	FName DisplayName_DEPRECATED; //@Deprecated
 		
 	UPROPERTY()
-	UPaperFlipbook* PaperFlipbook_DEPRECATED; //@Deprecated
+	TObjectPtr<UPaperFlipbook> PaperFlipbook_DEPRECATED; //@Deprecated
 
 	/**
 	 * If true, multiple animations sources can be added to this sequence at different angles.
