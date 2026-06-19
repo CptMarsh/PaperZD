@@ -2,6 +2,7 @@
 
 #include "PaperZDRuntimeEditorProxy.h"
 #include "PaperZDEditorSettings.h"
+#include "PaperZDVersionCompatibility.h"
 #include "AssetToolsModule.h"
 #include "Factories/PaperZDAnimSequenceFactory.h"
 #include "Factories/PaperZDAnimationSourceFactory.h"
@@ -213,7 +214,11 @@ void FPaperZDRuntimeEditorProxy::UpdateVersionToAnimBlueprintRework(UPaperZDAnim
 
 	//~~~~
 	//Stage 0, Setup the metadata
+#if PAPERZD_UE_5_8_OR_LATER
 	AnimationGraph->Rename(*UPaperZDAnimGraphSchema::GN_AnimGraph.ToString());
+#else
+	AnimationGraph->Rename(*UPaperZDAnimGraphSchema::GN_AnimGraph.ToString(), nullptr, REN_ForceNoResetLoaders);
+#endif
 
 	//~~~~
 	//Stage 1, create a transient EdGraph, and pass all the nodes to it.

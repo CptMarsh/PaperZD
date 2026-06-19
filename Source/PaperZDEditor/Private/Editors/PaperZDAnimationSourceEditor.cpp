@@ -7,6 +7,7 @@
 #include "Editors/Slate/SPaperZDAnimSequenceEditor.h"
 #include "Editors/Slate/SPaperZDModeSelectorWidget.h"
 #include "Editors/PaperZDAnimationSourceViewportClient.h"
+#include "Editors/Util/PaperZDVersionCompatibility.h"
 #include "WorkflowOrientedApp/ApplicationMode.h"
 #include "WorkflowOrientedApp/WorkflowTabManager.h"
 #include "AnimSequences/Sources/PaperZDAnimationSource.h"
@@ -156,7 +157,11 @@ public:
 			TSharedRef<FTabManager> TabManager = InTabManager.ToSharedRef();
 			Editor->RegisterTabSpawners(TabManager);
 			Editor->PushTabFactories(TabFactories);
+#if PAPERZD_UE_5_8_OR_LATER
 			RegisterTabFactoriesWithAppAndManager(Editor.Get(), TabManager);
+#else
+			FApplicationMode::RegisterTabFactories(InTabManager);
+#endif
 		}
 	}
 };
