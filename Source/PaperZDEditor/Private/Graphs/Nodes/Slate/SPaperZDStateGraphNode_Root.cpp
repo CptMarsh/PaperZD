@@ -40,7 +40,6 @@ void SPaperZDStateGraphNode_Root::UpdateGraphNode()
 
 	FLinearColor TitleShadowColor(0.6f, 0.6f, 0.6f);
 
-	this->ContentScale.Bind(this, &SGraphNode::GetContentScale);
 	this->GetOrAddSlot(ENodeZone::Center)
 		.HAlign(HAlign_Center)
 		.VAlign(VAlign_Center)
