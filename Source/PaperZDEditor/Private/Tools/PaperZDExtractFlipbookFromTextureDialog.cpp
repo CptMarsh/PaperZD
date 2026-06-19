@@ -19,7 +19,7 @@
 #include "PaperZDAnimInstance.h"
 #include "PropertyEditorModule.h"
 #include "SPrimaryButton.h"
-#include "SSearchableComboBox.h"
+#include "Widgets/Input/SSearchableComboBox.h"
 #include "TextureCompiler.h"
 #include "TextureResource.h"
 
