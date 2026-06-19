@@ -151,11 +151,13 @@ public:
 
 	virtual void RegisterTabFactories(TSharedPtr<FTabManager> InTabManager) override
 	{
-		TSharedPtr<FPaperZDAnimationSourceEditor> Editor = AnimSourceEditorPtr.Pin();
-		Editor->RegisterTabSpawners(InTabManager.ToSharedRef());
-		Editor->PushTabFactories(TabFactories);
-
-		FApplicationMode::RegisterTabFactories(InTabManager);
+		if (TSharedPtr<FPaperZDAnimationSourceEditor> Editor = AnimSourceEditorPtr.Pin())
+		{
+			TSharedRef<FTabManager> TabManager = InTabManager.ToSharedRef();
+			Editor->RegisterTabSpawners(TabManager);
+			Editor->PushTabFactories(TabFactories);
+			RegisterTabFactoriesWithAppAndManager(Editor.Get(), TabManager);
+		}
 	}
 };
 
