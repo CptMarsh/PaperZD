@@ -829,7 +829,7 @@ FReply FPaperZDAnimTimeSliderController::OnMouseWheel(SWidget& WidgetOwner, cons
 	return FReply::Unhandled();
 }
 
-FCursorReply FPaperZDAnimTimeSliderController::OnCursorQuery(TSharedRef<const SWidget> WidgetOwner, const FGeometry& MyGeometry, const FPointerEvent& CursorEvent) const
+FCursorReply FPaperZDAnimTimeSliderController::OnCursorQuery(const SWidget& WidgetOwner, const FGeometry& MyGeometry, const FPointerEvent& CursorEvent) const
 {
 	FScrubRangeToScreen RangeToScreen(TimeSliderArgs.ViewRange.Get(), MyGeometry.Size);
 
