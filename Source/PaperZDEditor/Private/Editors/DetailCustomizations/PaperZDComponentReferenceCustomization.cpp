@@ -382,7 +382,7 @@ FPropertyAccess::Result FPaperZDComponentReferenceCustomization::GetValue(FCompo
 {
 	// Potentially accessing the value while garbage collecting or saving the package could trigger a crash.
 	// so we fail to get the value when that is occurring.
-	if (GIsSavingPackage || IsGarbageCollecting())
+	if (UE::IsSavingPackage() || IsGarbageCollecting())
 	{
 		return FPropertyAccess::Fail;
 	}
