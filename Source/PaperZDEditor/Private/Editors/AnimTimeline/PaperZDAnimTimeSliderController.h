@@ -8,7 +8,7 @@
 #include "Widgets/SWidget.h"
 #include "Editors/AnimTimeline/SPaperZDAnimTimeline.h"
 #include "ITimeSlider.h"
-#if ENGINE_MAJOR_VERSION >= 5 && ENGINE_MINOR_VERSION >= 3
+#if PAPERZD_UE_5_3_OR_LATER
 #include "TimeSliderArgs.h"
 #endif
 
