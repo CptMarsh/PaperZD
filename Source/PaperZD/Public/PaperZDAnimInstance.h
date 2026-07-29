@@ -44,7 +44,7 @@ class PAPERZD_API UPaperZDAnimInstance : public UObject
 	 * It internally calls "GetOwningActor" while casting to a PaperZDCharacter.
 	 */
 	UPROPERTY(BlueprintGetter = "GetPaperCharacter", Transient, Category="PaperZD")
-	APaperZDCharacter* PaperCharacter;
+	TObjectPtr<APaperZDCharacter> PaperCharacter;
 
 	/* If true, sequencer is currently running a movie scene through this AnimInstance and hence, we have paused the AnimSequence update and evaluations. */
 	bool bSequencerOverride;

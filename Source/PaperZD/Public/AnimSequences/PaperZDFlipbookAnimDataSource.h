@@ -43,7 +43,7 @@ struct PAPERZD_API FPaperZDFlipbookAnimDataSource
 
 	/** The additional layers to render alongside the main animation. */
 	UPROPERTY(EditAnywhere, Category = "AnimSequence")
-	TArray<UPaperFlipbook*> CompositeLayerAnimations;
+	TArray<TObjectPtr<UPaperFlipbook>> CompositeLayerAnimations;
 
 	/** Controls how this animation's frames are mirrored. Switch to PerFrame to enable the per-key-frame checkbox rows. */
 	UPROPERTY(EditAnywhere, Category = "AnimSequence", meta = (ToolTip = "Controls how this animation's frames are mirrored. Switch to PerFrame to enable the per-key-frame checkbox rows."))

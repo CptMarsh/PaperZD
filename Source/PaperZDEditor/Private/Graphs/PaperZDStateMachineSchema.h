@@ -15,7 +15,7 @@ struct FPaperZDStateMachineSchemaAction_NewNode : public FEdGraphSchemaAction
 
 	/** Class of node we want to create */
 	UPROPERTY()
-	UClass* NodeClass;
+	TObjectPtr<UClass> NodeClass;
 
 	FPaperZDStateMachineSchemaAction_NewNode()
 		: FEdGraphSchemaAction()
